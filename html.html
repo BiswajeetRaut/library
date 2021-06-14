@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>library</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+</head>
+<style>
+    html {
+  scroll-behavior: smooth;
+    }
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('bgimage.jpeg');
+        background-size: cover;
+        background-color: #310b0b;
+        background-blend-mode:luminosity;
+    }
+    .tableclass{
+        color: turquoise;
+    
+    }
+    .hide{
+        visibility: hidden;
+    }
+    #Issue{
+        
+            display: grid; 
+            /*grid-gap: 1rem;
+            /* grid-template-columns: 112px 112px 112px;  */
+            /* grid-template-columns: 1fr 1fr 1fr;  */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* justify-content: center;  */
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">School Library</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      what do you want to do?
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" onclick="clearbook()">Clear book list</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#" onclick="showbook()">Get book list</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                </ul>
+              </li>
+
+            </ul>
+            <form class="d-flex" id="searchwindow">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success">Search</button>
+              </form>
+          </div>
+        </div>
+      </nav>
+      <div class="myx-3 my-3 container hide" id="tableid" style="width:50%; margin:auto;">
+        <table class="table tableclass table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Sl no.</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Author</th>
+                <th scope="col">Genre</th>
+                <th class="addbtn"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="contents" id="1">
+                <th scope="row">1</th>
+                <td class="Bookname">Shini Gami</td>
+                <td class="Authorname">Otto</td>
+                <td class="genre">crime</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn1" onclick="issuebook(this.id,'1')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="2">
+                <th scope="row">2</th>
+                <td class="Bookname">conjuring</td>
+                <td class="Authorname">Thornton</td>
+                <td class="genre">Horror</td>
+                <td><button class="addbtn btn btn-primary issuebtn " id="btn2" onclick="issuebook(this.id,'2')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="3">
+                <th scope="row">3</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn3" onclick="issuebook(this.id,'3')">Issuebook</button></td>
+
+              </tr>
+              <tr class="contents" id="4">
+                <th scope="row">4</th>
+                <td class="Bookname">Cooking with Mr.sangwan</td>
+                <td class="Authorname">M.S.Sangwan</td>
+                <td class="genre">Cooking</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn4" onclick="issuebook(this.id,'4')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="5">
+                <th scope="row">5</th>
+                <td class="Bookname">The Real Modern society </td>
+                <td class="Authorname">Anonymous</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn5" onclick="issuebook(this.id,'5')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="6">
+                <th scope="row">6</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn6" onclick="issuebook(this.id,'6')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="7">
+                <th scope="row">7</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn7" onclick="issuebook(this.id,'7')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="8">
+                <th scope="row">8</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn8" onclick="issuebook(this.id,'8')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="9">
+                <th scope="row">9</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn9" onclick="issuebook(this.id,'9')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="10">
+                <th scope="row">10</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn10" onclick="issuebook(this.id,'10')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="11">
+                <th scope="row">11</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn11" onclick="issuebook(this.id,'11')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="12">
+                <th scope="row">12</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.s.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn12" onclick="issuebook(this.id,'12')">Issuebook</button></td>
+              </tr>
+              <tr class="contents" id="13">
+                <th scope="row">13</th>
+                <td class="Bookname">higher mathematics simplified</td>
+                <td class="Authorname">H.S.Gangwar</td>
+                <td class="genre">Educational</td>
+                <td><button class="addbtn btn btn-primary issuebtn" id="btn13" onclick="issuebook(this.id,'13')">Issuebook</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="container">
+
+          <hr style="color: rgb(4, 245, 221);">
+          <h1 style="color:turquoise;">Issued Books</h1>
+          <hr style="color: rgb(9, 243, 223);">
+        </div>
+      <div class="container-fluid " id="Issue" ></div>
+        <div class="container priceclass" id="bill">
+            <div class="card" style="width:30%; margin: auto; text-align: center;">
+
+                <p id="billamt"></p>
+                <button class="addbtn btn btn-primary" id="paybtn">Pay Now</button>
+            </div>
+
+        </div>
+
+      <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
